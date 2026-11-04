@@ -7,6 +7,9 @@ class GroupEstimate(object):
     """Estimate numerical values based on categorical groups."""
     def __init__(self, estimate):
         """Initialize the model with mean or median estimation."""
+        if estimate not in ["mean", "median"]:
+            raise ValueError("estimate must be 'mean' or 'median'")
+
         self.estimate = estimate
     
     def fit(self, X, y):
